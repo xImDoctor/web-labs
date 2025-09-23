@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.user-info,
+.super-user-info {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.user-info h3,
+.super-user-info h3 {
+    color: red;
+}
