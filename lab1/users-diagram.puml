@@ -1,0 +1,45 @@
+@startuml
+skinparam class {
+    BackgroundColor White
+    BorderColor Black
+    HeaderBackgroundColor LightBlue
+    ArrowColor Black
+}
+
+skinparam interface {
+    BackgroundColor LightYellow
+    BorderColor Black
+}
+
+abstract class AbstractUser {
+    {abstract} +showInfo(): string
+}
+
+interface SuperUserInterface {
+    +getInfo(): array
+}
+
+class User {
+    +name: string
+    +login: string
+    -password: string
+    {static} +userCount: int = 0
+    
+    +__construct(name: string, login: string, password: string)
+    +showInfo(): string
+    +__destruct()
+}
+
+class SuperUser {
+    +role: string
+    {static} +superUserCount: int = 0
+    
+    +__construct(name: string, login: string, password: string, role: string)
+    +showInfo(): string
+    +getInfo(): array
+}
+
+AbstractUser <|-- User
+User <|-- SuperUser
+SuperUser ..|> SuperUserInterface
+@enduml
