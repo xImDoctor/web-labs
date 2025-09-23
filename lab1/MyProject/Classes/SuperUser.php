@@ -4,9 +4,11 @@ namespace MyProject\Classes;
 
 require_once 'User.php';
 
-class SuperUser extends User
+class SuperUser extends User implements SuperUserInterface
 {
     public $role;
+
+    public static $superUserCount = 0;
 
     /**
      * Конструктор класса SuperUser.
@@ -20,6 +22,8 @@ class SuperUser extends User
     {
         parent::__construct($name, $login, $password);
         $this->role = $role;
+
+        self::$superUserCount++;
     }
 
     /**
@@ -35,5 +39,20 @@ class SuperUser extends User
                     <p><strong>Login:</strong> {$this->login}</p>
                     <p><strong>Role:</strong> {$this->role}</p>
                 </div>";
+    }
+
+
+    /**
+     * Получить информацию о суперпользователе в виде ассоциативного массива
+     * 
+     * @return array Ассоциативный массив с данными пользователя
+     */
+    public function getInfo(): array
+    {
+        return [
+            'name' => $this->name,
+            'login' => $this->login,
+            'role' => $this->role
+        ];
     }
 }

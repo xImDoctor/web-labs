@@ -2,12 +2,16 @@
 declare(strict_types=1);
 namespace MyProject\Classes;
 
+require_once 'AbstractUser.php';
+
 class User extends AbstractUser
 {
 
     public $name;
     public $login;
     private $password;
+
+    public static $userCount = 0;
 
     /**
      * Конструктор класса User.
@@ -21,6 +25,8 @@ class User extends AbstractUser
         $this->name = $name;
         $this->login = $login;
         $this->password = $password;
+
+        self::$userCount++;
     }
 
     /**

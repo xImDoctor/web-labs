@@ -13,3 +13,11 @@ body {
 .super-user-info h3 {
     color: red;
 }
+
+
+.stats {
+    border: 1px solid #666;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+}
