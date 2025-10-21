@@ -1,0 +1,44 @@
+@startuml class-diagram
+  class "Router" as Router {
+    {static} +parse(url)
+    {abstract} +render()
+  }
+  package models as models {
+    class "Pages" as models_Pages {
+      +pages : ?array
+      +__construct(pages)
+      +render()
+    }
+    class "Page" as models_Page {
+      +title : string
+      +content : string
+      +__construct(title, content)
+      +render()
+    }
+    class "User" as models_User {
+      +email : string
+      -password : string
+      +first_name : ?string
+      +last_name : ?string
+      +__construct(email, password, first_name, last_name)
+      +render()
+    }
+    class "Users" as models_Users {
+      +users : ?array
+      +__construct(users)
+    }
+    class "Collection" as models_Collection {
+      +collection : ?array
+      +__construct(collection)
+      +renders()
+      +render()
+    }
+  }
+  Router <|-- models_Collection
+  Router <|-- models_Page
+  Router <|-- models_User
+  models_Collection <|-- models_Pages
+  models_Collection <|-- models_Users
+  models_Pages ..> models_Page
+  models_Users ..> models_User
+@enduml

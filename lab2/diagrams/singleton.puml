@@ -1,0 +1,12 @@
+@startuml class-diagram
+  class "Settings" as Settings {
+    -_object : ?Settings
+    -_settings : ?array
+    -__construct()
+    -__clone()
+    {static} +get()
+    +__get(key)
+    +__set(key, value)
+  }
+  Settings ..> Settings
+@enduml
