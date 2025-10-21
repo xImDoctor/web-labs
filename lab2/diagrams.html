@@ -4,105 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Лаб 2. Шаблоны проектирования</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #f5f5f5;
-        }
-        
-        h1 {
-            color: #667eea;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-        }
-        
-        .diagram-section {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .diagram-section h2 {
-            color: #764ba2;
-            margin-top: 0;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 10px;
-        }
-        
-        .diagram-image {
-            text-align: center;
-            margin: 20px 0;
-            padding: 20px;
-            background: #fafafa;
-            border-radius: 5px;
-        }
-        
-        .diagram-image img {
-            max-width: 100%;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        
-        .links {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-        
-        .links a {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #667eea;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-        
-        .links a:hover {
-            background: #764ba2;
-        }
-        
-        .back-link {
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .back-link a {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        
-        .back-link a:hover {
-            background: #45a049;
-        }
-    </style>
+    <link rel="stylesheet" href="../lab-style.css">
+
 </head>
 <body>
     <h1>Шаблоны проектирования</h1>
 
     <!-- Singleton -->
     <div class="diagram-section">
-        <h2>1. Паттерн Singleton</h2>
+        <h2>1. Singleton</h2>
         <div class="diagram-image">
             <img src="diagrams/singleton.png" alt="Диаграмма классов Singleton" 
                  onerror="this.src='diagrams/singleton.svg'; this.onerror=null;">
