@@ -1,24 +1,21 @@
 <?php
 declare(strict_types=1);
 
-// Подключение файла с описанием класса NewsDB
 require_once 'NewsDB.class.php';
 
-// Создание объекта $news, экземпляр класса NewsDB
-$news = new NewsDB();
 
-// Создание переменной $errMsg со строковым значением ""
+$news = new NewsDB();
 $errMsg = "";
 
 // Проверка на удаление записи
-if (isset($_GET['del_id'])) {
+if (isset($_GET['del_id']))
 	require_once 'delete_news.inc.php';
-}
 
-// Проверка, была ли отправлена HTML-форма
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+// была ли отправлена HTML-форма
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	require_once 'save_news.inc.php';
-}
+
 ?>
 
 
@@ -35,12 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	<h1>Последние новости</h1>
 
+	<p><a href="uml.html" class="uml-link">Диаграмма классов</a></p>
+
 	<?php
 
 	// Проверка и вывод ошибок
-	if (!empty($errMsg)) {
+	if (!empty($errMsg))
 		echo "<div class='error'>$errMsg</div>";
-	}
 	?>
 
 	<form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
@@ -68,9 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	<div class="news-container">
 
-
 		<?php
-		require_once 'get_news.inc.php';  // Подключение файла для вывода новостей
+		require_once 'get_news.inc.php';  //  файл для вывода новостей
 		?>
 
 	</div>

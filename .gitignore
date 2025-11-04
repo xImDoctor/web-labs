@@ -1,1 +1,9 @@
 lab1.pdf
+3 SQLite.pdf
+
+lab3/*.db
+l3_news_diagram.puml
+
+# composer and other packages
+composer.*
+vendor

@@ -129,7 +129,7 @@ class NewsDB implements INewsDB {
         $result = $this->_db->query($sql);
         
         if (!$result)
-            return false;
+            return []; // вместо false
         
         
         $items = [];

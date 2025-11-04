@@ -23,15 +23,15 @@ if ($newsItems === false) {
             
             // Вывод новости
             echo <<<HTML
-            <div style="border: 1px solid #ccc; margin: 10px 0; padding: 10px; border-radius: 5px;">
+            <div class="news-item">
                 <h3>$title</h3>
                 <p><strong>Категория:</strong> $category</p>
                 <p>$description</p>
                 <p><strong>Источник:</strong> $source</p>
                 <p><small>Дата: $datetime</small></p>
                 <p>
-                    <a href="news.php?id=$id" style="color: blue;">Подробнее</a> | 
-                    <a href="news.php?del_id=$id" style="color: red;" 
+                    <a href="news.php?id=$id" style="color: blue;">Подробнее</a> |
+                    <a href="news.php?del_id=$id" style="color: red;"
                        onclick="return confirm('Вы уверены, что хотите удалить эту новость?')">Удалить</a>
                 </p>
             </div>
