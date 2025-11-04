@@ -1,11 +1,14 @@
 lab1.pdf
-3 SQLite.pdf
 
+3 SQLite.pdf
 lab3/*.db
 l3_news_diagram.puml
 
 lab4/*.db
 4 SPL.pdf
+
+lab5/*.db
+5 XML.pdf
 
 # composer and other packages
 composer.*
