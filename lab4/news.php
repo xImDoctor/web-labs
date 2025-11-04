@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	<h1>Последние новости</h1>
 
 	<p>
-		<a href="uml.html" class="uml-link">Диаграмма классов</a> |
+		<a href="uml.html" class="uml-link">Диаграмма классов</a>
 		<a href="NumbersSquared.php" class="uml-link">Демонстрация NumbersSquared</a>
 	</p>
 
@@ -49,13 +49,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 		<input type="text" name="title" required><br>
 
 		<label>Выберите категорию:</label><br>
-    <select name="category" required>
-      <option value="">-- Выберите категорию --</option>
-      <?php
-      // Использование объекта $news как итератора для вывода категорий
-      foreach($news as $id => $categoryName)
-          echo "<option value=\"$id\">$categoryName</option>\n";
-      ?>
+		<select name="category" required>
+			<option value="">-- Выберите категорию --</option>
+			<?php
+			// Использование объекта $news как итератора для вывода категорий
+			foreach($news as $id => $categoryName)
+				echo "<option value=\"$id\">$categoryName</option>\n";
+			?>
+		</select>
 		<br />
 
 		<label>Текст новости:</label><br>
