@@ -9,6 +9,7 @@ lab4/*.db
 
 lab5/*.db
 5 XML.pdf
+lab5/rss.xml
 
 # composer and other packages
 composer.*
