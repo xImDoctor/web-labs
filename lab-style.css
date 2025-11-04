@@ -1,90 +1,130 @@
- body {
-     font-family: Arial, sans-serif;
-     max-width: 1200px;
-     margin: 0 auto;
-     padding: 20px;
-     background: #f5f5f5;
- }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: #f5f5f5;
+    color: #333;
+}
 
- h1 {
-     color: #667eea;
-     text-align: center;
-     margin-bottom: 10px;
- }
+h1 {
+    color: #222;
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
 
- .subtitle {
-     text-align: center;
-     color: #666;
-     margin-bottom: 40px;
- }
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
 
- .diagram-section {
-     background: white;
-     border-radius: 10px;
-     padding: 25px;
-     margin-bottom: 30px;
-     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
- }
+.diagram-section {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
 
- .diagram-section h2 {
-     color: #764ba2;
-     margin-top: 0;
-     border-bottom: 2px solid #667eea;
-     padding-bottom: 10px;
- }
+.diagram-section h2 {
+    color: #222;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e0e0e0;
+}
 
- .diagram-image {
-     text-align: center;
-     margin: 20px 0;
-     padding: 20px;
-     background: #fafafa;
-     border-radius: 5px;
- }
+.diagram-image {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: 4px;
+}
 
- .diagram-image img {
-     max-width: 100%;
-     height: auto;
-     border: 1px solid #ddd;
-     border-radius: 5px;
- }
+.diagram-image img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
 
- .links {
-     display: flex;
-     gap: 15px;
-     justify-content: center;
-     flex-wrap: wrap;
-     margin-top: 15px;
- }
+.links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
 
- .links a {
-     display: inline-block;
-     padding: 10px 20px;
-     background: #667eea;
-     color: white;
-     text-decoration: none;
-     border-radius: 5px;
-     transition: background 0.3s;
- }
+.links a {
+    display: inline-block;
+    padding: 8px 16px;
+    background: white;
+    color: #1976d2;
+    text-decoration: none;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+}
 
- .links a:hover {
-     background: #764ba2;
- }
+.links a:hover {
+    background: #f5f5f5;
+    color: #1565c0;
+    border-color: #ccc;
+}
 
- .back-link {
-     text-align: center;
-     margin-top: 40px;
- }
+.back-link {
+    text-align: center;
+    margin-top: 50px;
+}
 
- .back-link a {
-     display: inline-block;
-     padding: 12px 30px;
-     background: #4CAF50;
-     color: white;
-     text-decoration: none;
-     border-radius: 5px;
-     font-weight: bold;
- }
+.back-link a {
+    display: inline-block;
+    padding: 10px 24px;
+    background: white;
+    color: #1976d2;
+    text-decoration: none;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
 
- .back-link a:hover {
-     background: #45a049;
- }
+.back-link a:hover {
+    background: #f5f5f5;
+    color: #1565c0;
+    border-color: #ccc;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 24px 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .diagram-section {
+        padding: 20px;
+    }
+
+    .links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .links a {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
