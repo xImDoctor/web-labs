@@ -4,6 +4,8 @@ lab1.pdf
 lab3/*.db
 l3_news_diagram.puml
 
+lab4/*.db
+
 # composer and other packages
 composer.*
 vendor
