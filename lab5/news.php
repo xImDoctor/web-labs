@@ -37,16 +37,8 @@ $rssExists = file_exists(NewsDB::RSS_NAME);
 		<?php endif; ?>
 	</h1>
 
-	<p>
-		<a href="uml.html" class="uml-link">Диаграмма классов</a>
-	</p>
-
-	<div class="info-box">
-		<h3>XML и RSS генерация</h3>
-		<p>Приложение автоматически генерирует RSS-ленту при добавлении или удалении новостей.</p>
-		<p>RSS файл создается с помощью <strong>DOM API</strong> и сохраняется как <code><?= NewsDB::RSS_NAME ?></code></p>
-		<p>Каждая новость содержит: заголовок, ссылку, описание (в CDATA), дату публикации и категорию.</p>
-	</div>
+	<p><a href="uml.html" class="uml-link">Диаграмма классов</a>
+	
 
 	<?php
 	// Проверка и вывод ошибок
@@ -84,7 +76,7 @@ $rssExists = file_exists(NewsDB::RSS_NAME);
 		require_once 'get_news.inc.php';  //  файл для вывода новостей
 		?>
 	</div>
-	
+
 
 </body>
 
