@@ -1,0 +1,75 @@
+@startuml NewsDB_Class_Diagram
+
+!define INTERFACE_COLOR #FFE0B2
+!define CLASS_COLOR #E1F5FE
+!define DATABASE_COLOR #F3E5F5
+
+skinparam class {
+    BackgroundColor<<interface>> INTERFACE_COLOR
+    BackgroundColor<<class>> CLASS_COLOR
+    BackgroundColor<<database>> DATABASE_COLOR
+    BorderColor #333333
+    ArrowColor #666666
+}
+
+interface INewsDB <<interface>> {
+    +saveNews(title: string, category: string, description: string, source: string): boolean
+    +getNews(): array
+    +deleteNews(id: integer): boolean
+}
+
+class NewsDB <<class>> {
+    +{static} DB_NAME: string = "news.db"
+    -_db: SQLite3
+    #getDb(): SQLite3
+    +__construct()
+    +__destruct()
+    +saveNews(title: string, category: string, description: string, source: string): boolean
+    +getNews(): array
+    +deleteNews(id: integer): boolean
+}
+
+class SQLite3 <<database>> {
+    +busyTimeout(ms: int): void
+    +exec(query: string): bool
+    +query(query: string): SQLite3Result
+    +prepare(query: string): SQLite3Stmt
+}
+
+class SQLite3Stmt <<database>> {
+    +bindValue(param: string, value: mixed, type: int): bool
+    +execute(): SQLite3Result
+    +close(): bool
+}
+
+class SQLite3Result <<database>> {
+    +fetchArray(mode: int): array
+}
+
+entity "msgs" as msgs_table <<database>> {
+    * **id**: INTEGER (PK, AUTOINCREMENT)
+    --
+    title: TEXT
+    category: INTEGER
+    description: TEXT
+    source: TEXT
+    datetime: INTEGER
+}
+
+entity "category" as category_table <<database>> {
+    * **id**: INTEGER
+    --
+    name: TEXT
+}
+
+' Связи
+NewsDB ..|> INewsDB : implements
+NewsDB --> SQLite3 : uses
+SQLite3 --> SQLite3Stmt : creates
+SQLite3Stmt --> SQLite3Result : returns
+NewsDB ..> msgs_table : manages
+NewsDB ..> category_table : reads from
+msgs_table }o--|| category_table : references
+
+
+@enduml
