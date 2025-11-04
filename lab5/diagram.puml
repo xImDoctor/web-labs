@@ -1,0 +1,21 @@
+@startuml class-diagram
+  interface "INewsDB\n<b>inerface INewsDB</b>" as INewsDB {
+    +saveNews(title, category, description, source)
+    +getNews()
+    +deleteNews(id)
+  }
+  class "NewsDB\n<b>Класс NewsDB</b>" as NewsDB {
+    -_db : SQLite3
+    -items : array
+    #getDb()
+    +__construct()
+    +__destruct()
+    -getCategories()
+    +getIterator()
+    +saveNews(title, category, description, source)
+    +getNews()
+    +deleteNews(id)
+    +createRss()
+  }
+  INewsDB <|-- NewsDB
+@enduml
