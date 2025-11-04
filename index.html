@@ -7,29 +7,56 @@
     <link rel="stylesheet" href="styles.css">
     <title>Web-программирование</title>
 
-    <style>
-       
-    </style>
+    <script>
+        // Проверяем сохраненную тему при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.classList.toggle('dark-theme', savedTheme === 'dark');
+
+            // Обработчик переключения темы
+            document.getElementById('theme-toggle').addEventListener('click', function() {
+                document.body.classList.toggle('dark-theme');
+                const currentTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+                localStorage.setItem('theme', currentTheme);
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
 
         
         <div class="header">
-            <h1>Лабораторные работы</h1>
+            <h1>Лабораторные работы<button id="theme-toggle" class="theme-toggle" aria-label="Переключить тему">
+                <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button></h1>
             <p>Web-программирование</p>
         </div>
 
+        
         <div class="labs-grid">
-            <!-- Лабораторная работа 1 - Выполнена -->
-            <div class="lab-card available">
-                <div class="lab-title">
-                    Лабораторная работа №1
+            <!-- Лабораторная работа 1 -->
+            <div class="lab-card completed">
+                <div class="lab-title-row">
+                    <div class="lab-title">Лабораторная работа №1</div>
+                    <span class="status-badge status-completed">Выполнено</span>
                 </div>
                 <div class="lab-description">
                    Классы и интерфейсы
                 </div>
-                <!-- <span class="status-badge status-available">Выполнено</span> -->
                 <ul class="lab-tasks">
                     <li><a href="lab1/users.php" class="task-link">I-VIII. Работа с классами и интерфейсами</a></li>
                     <li><a href="lab1/uml.html" class="task-link">IX. UML диаграмма</a></li>
@@ -37,9 +64,10 @@
             </div>
 
             <!-- Лабораторная работа 2 -->
-            <div class="lab-card available">
-                <div class="lab-title">
-                    Лабораторная работа №2
+            <div class="lab-card completed">
+                <div class="lab-title-row">
+                    <div class="lab-title">Лабораторная работа №2</div>
+                    <span class="status-badge status-completed">Выполнено</span>
                 </div>
                 <div class="lab-description">
                     Шаблоны проектирования
@@ -48,25 +76,24 @@
                     <li><a href="lab2/diagrams.html" class="task-link">Примеры использования и диаграммы</a></li>
                 </ul>
             </div>
-        </div>
 
-                    <!-- Лабораторная работа 3 -->
-            <div class="lab-card available">
-                <div class="lab-title">
-                    Лабораторная работа №3
+            <!-- Лабораторная работа 3 -->
+            <div class="lab-card in-progress">
+                <div class="lab-title-row">
+                    <div class="lab-title">Лабораторная работа №3</div>
+                    <span class="status-badge status-in-progress">В процессе</span>
                 </div>
                 <div class="lab-description">
-                    
+                    В разработке
                 </div>
-                <span class="status-badge status-no-comming">Как только - так сразу!</span>
             </div>
         </div>
 
         <div class="footer">
             <div class="footer-links">
-                 <a href="https://github.com/xImDoctor/web-labs" target="_blank" class="github-link">
-                <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/github.svg" alt="GitHub" class="github-icon" style="filter: invert(1);"">
-            </a>
+                <a href="https://github.com/xImDoctor/web-labs" target="_blank" class="github-link">
+                    <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/github.svg" alt="GitHub" class="github-icon">
+                </a>
                 <p>&copy; Andrew ImDoctor, 21ПМ</p>
             </div>
         </div>
