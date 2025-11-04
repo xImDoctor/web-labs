@@ -6,19 +6,26 @@ require_once 'INewsDB.class.php';
 /**
  * Класс NewsDB
  * Реализует интерфейс INewsDB для работы с новостной лентой
+ * Реализует интерфейс IteratorAggregate для итерации по категориям
  * Использует SQLite3 для хранения данных
  */
-class NewsDB implements INewsDB {
+class NewsDB implements INewsDB, IteratorAggregate {
     /**
      * Имя файла базы данных
      */
     const DB_NAME = 'news.db';
-    
+
     /**
      * Экземпляр класса SQLite3
      * @var SQLite3
      */
     private $_db;
+    
+    /**
+     * Массив категорий для итератора
+     * @var array
+     */
+    private array $items = [];
     
     /**
      * Геттер для свойства $_db (для доступа из классов-наследников)
@@ -59,7 +66,6 @@ class NewsDB implements INewsDB {
             )";
             $this->_db->exec($sql);
             
-
             // Заполнение таблицы category
             $sql = "INSERT INTO category(id, name)
                     SELECT 1 as id, 'Политика' as name
@@ -67,9 +73,11 @@ class NewsDB implements INewsDB {
                     UNION SELECT 3 as id, 'Спорт' as name";
             $this->_db->exec($sql);
         }
+        
+        // Загрузка категорий для итератора
+        $this->getCategories();
     }
     
-
     /**
      * Деструктор класса
      * Закрывает соединение с базой данных
@@ -78,7 +86,35 @@ class NewsDB implements INewsDB {
         unset($this->_db);
     }
     
-
+    /**
+     * Загрузка категорий из базы данных
+     * Заполняет массив items для итератора
+     * 
+     * @return void
+     */
+    private function getCategories(): void {
+        $sql = "SELECT id, name FROM category ORDER BY id";
+        $result = $this->_db->query($sql);
+        
+        if ($result) {
+            $this->items = [];
+            while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+                // Ключ - id категории, значение - название категории
+                $this->items[$row['id']] = $row['name'];
+            }
+        }
+    }
+    
+    /**
+     * Реализация метода getIterator() интерфейса IteratorAggregate
+     * Возвращает итератор для обхода категорий
+     * 
+     * @return ArrayIterator Итератор для массива категорий
+     */
+    public function getIterator(): ArrayIterator {
+        return new ArrayIterator($this->items);
+    }
+    
     /**
      * Добавление новой записи в новостную ленту
      * 
@@ -113,7 +149,6 @@ class NewsDB implements INewsDB {
         return false;
     }
     
-
     /**
      * Выборка всех записей из новостной ленты
      * 
@@ -135,6 +170,7 @@ class NewsDB implements INewsDB {
         $items = [];
         while ($row = $result->fetchArray(SQLITE3_ASSOC))
             $items[] = $row;
+        
         
         return $items;
     }
@@ -161,4 +197,5 @@ class NewsDB implements INewsDB {
         
         return false;
     }
+
 }

@@ -5,6 +5,7 @@ lab3/*.db
 l3_news_diagram.puml
 
 lab4/*.db
+4 SPL.pdf
 
 # composer and other packages
 composer.*

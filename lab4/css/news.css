@@ -1,0 +1,104 @@
+		body {
+		    font-family: Arial, sans-serif;
+		    max-width: 1200px;
+		    margin: 0 auto;
+		    padding: 20px;
+		    background-color: #f5f5f5;
+		}
+
+		h1 {
+		    color: #333;
+		    border-bottom: 2px solid #4CAF50;
+		    padding-bottom: 10px;
+		}
+
+		form {
+		    background: white;
+		    padding: 20px;
+		    border-radius: 8px;
+		    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		    margin-bottom: 30px;
+		}
+
+		form input[type="text"],
+		form select,
+		form textarea {
+		    width: 100%;
+		    padding: 8px;
+		    margin: 5px 0 15px 0;
+		    border: 1px solid #ddd;
+		    border-radius: 4px;
+		    box-sizing: border-box;
+		}
+
+		form input[type="submit"] {
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 12px 30px;
+		    border: none;
+		    border-radius: 4px;
+		    cursor: pointer;
+		    font-size: 16px;
+		}
+
+		form input[type="submit"]:hover {
+		    background-color: #45a049;
+		}
+
+		.error {
+		    background-color: #f44336;
+		    color: white;
+		    padding: 15px;
+		    border-radius: 4px;
+		    margin: 15px 0;
+		}
+
+		.news-container {
+		    background: white;
+		    padding: 20px;
+		    border-radius: 8px;
+		    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.news-item {
+		    border: 1px solid #ccc;
+		    margin: 10px 0;
+		    padding: 10px;
+		    border-radius: 5px;
+		    word-wrap: break-word;
+		    overflow-wrap: break-word;
+		    word-break: break-word;
+		}
+
+		.news-item h3 {
+		    margin-top: 0;
+		    color: #333;
+		}
+
+		.news-item p {
+		    margin: 8px 0;
+		}
+
+		.news-item a {
+		    text-decoration: none;
+		    font-weight: bold;
+		}
+
+		.news-item a:hover {
+		    text-decoration: underline;
+		}
+
+		.uml-link {
+		    display: inline-block;
+		    background-color: #2196F3;
+		    color: white;
+		    padding: 10px 20px;
+		    text-decoration: none;
+		    border-radius: 4px;
+		    margin: 15px 0;
+		    font-weight: bold;
+		}
+
+		.uml-link:hover {
+		    background-color: #0b7dda;
+		}

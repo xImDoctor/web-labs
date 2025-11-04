@@ -1,0 +1,48 @@
+@startuml class-diagram
+  interface "INewsDB\n<b>inerface INewsDB</b>" as INewsDB {
+    +saveNews(title, category, description, source)
+    +getNews()
+    +deleteNews(id)
+  }
+
+  interface "Iterator\n<b>interface Iterator</b>" as Iterator {
+    +rewind()
+    +valid()
+    +next()
+    +key()
+    +current()
+  }
+
+  interface "IteratorAggregate\n<b>interface IteratorAggregate</b>" as IteratorAggregate {
+    +getIterator()
+  }
+
+  class "NewsDB\n<b>Класс NewsDB</b>" as NewsDB {
+    -_db : SQLite3
+    -items : array
+    #getDb()
+    +__construct()
+    +__destruct()
+    -getCategories()
+    +getIterator()
+    +saveNews(title, category, description, source)
+    +getNews()
+    +deleteNews(id)
+  }
+
+  class "NumbersSquared\n<b>Класс NumbersSquared</b>" as NumbersSquared {
+    -start : int
+    -end : int
+    -current : int
+    +__construct(start, end)
+    +rewind()
+    +valid()
+    +next()
+    +key()
+    +current()
+  }
+
+  INewsDB <|-- NewsDB
+  IteratorAggregate <|-- NewsDB
+  Iterator <|-- NumbersSquared
+@enduml
