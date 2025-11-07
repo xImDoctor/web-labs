@@ -27,7 +27,7 @@ class NewsDB implements INewsDB, IteratorAggregate {
     /**
      * Ссылка на новостную ленту
      */
-    const RSS_LINK = 'http://f1172321.xsph.ru/lab5/news.php';
+    const RSS_LINK = 'http://f1172321.xsph.ru/lab6/news.php';
     
     /**
      * Экземпляр класса PDO
