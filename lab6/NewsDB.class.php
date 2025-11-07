@@ -27,7 +27,7 @@ class NewsDB implements INewsDB, IteratorAggregate {
     /**
      * Ссылка на новостную ленту
      */
-    const RSS_LINK = 'http://f1172321.xsph.ru/lab5/news.php';
+    const RSS_LINK = 'http://f1172321.xsph.ru/lab6/news.php';
     
     /**
      * Экземпляр класса PDO
@@ -248,78 +248,75 @@ class NewsDB implements INewsDB, IteratorAggregate {
      * Формирует RSS-файл на основе новостей из базы данных
      */
     public function createRss(): void {
-        try {
-            // Создание объекта DOMDocument
-            $dom = new DOMDocument('1.0', 'utf-8');
-            $dom->formatOutput = true;
-            $dom->preserveWhiteSpace = false;
-            
-            // Создание корневого элемента rss
-            $rss = $dom->createElement('rss');
-            $rss = $dom->appendChild($rss);
-            
-            // Создание атрибута version
-            $version = $dom->createAttribute('version');
-            $version->value = '2.0';
-            $rss->appendChild($version);
-            
-            // Создание элемента channel
-            $channel = $dom->createElement('channel');
-            $channel = $rss->appendChild($channel);
-            
-            // Создание элемента title
-            $title = $dom->createElement('title', self::RSS_TITLE);
-            $channel->appendChild($title);
-            
-            // Создание элемента link
-            $link = $dom->createElement('link', self::RSS_LINK);
-            $channel->appendChild($link);
-            
-            // Получение данных из базы
-            $result = $this->getNews();
+        // Создание объекта DOMDocument
+        $dom = new DOMDocument('1.0', 'utf-8');
 
-            if (is_array($result)) {
-                foreach ($result as $row) {
-                    // Создание элемента item для каждой новости
-                    $item = $dom->createElement('item');
-                    
-                    // Создание элемента title новости
-                    $itemTitle = $dom->createElement('title');
-                    $itemTitle->appendChild($dom->createTextNode($row['title']));
-                    $item->appendChild($itemTitle);
-                    
-                    // Создание элемента link
-                    $itemLink = $dom->createElement('link');
-                    $itemLink->appendChild($dom->createTextNode(self::RSS_LINK . '?id=' . $row['id']));
-                    $item->appendChild($itemLink);
-                    
-                    // Создание элемента description с CDATA
-                    $itemDescription = $dom->createElement('description');
-                    $cdata = $dom->createCDATASection($row['description']);
-                    $itemDescription->appendChild($cdata);
-                    $item->appendChild($itemDescription);
-                    
-                    // Создание элемента pubDate
-                    $pubDate = $dom->createElement('pubDate');
-                    $pubDate->appendChild($dom->createTextNode(date('r', $row['datetime'])));
-                    $item->appendChild($pubDate);
-                    
-                    // Создание элемента category
-                    $itemCategory = $dom->createElement('category');
-                    $itemCategory->appendChild($dom->createTextNode($row['category']));
-                    $item->appendChild($itemCategory);
-                    
-                    // Добавление item к channel
-                    $channel->appendChild($item);
-                }
+        // Настройки форматирования
+        $dom->formatOutput = true;
+        $dom->preserveWhiteSpace = false;
+
+        // Создание корневого элемента rss
+        $rss = $dom->createElement('rss');
+        $rss = $dom->appendChild($rss);
+
+        // Создание атрибута version для rss
+        $version = $dom->createAttribute('version');
+        $version->value = '2.0';
+        $rss->appendChild($version);
+
+        // Создание элемента channel
+        $channel = $dom->createElement('channel');
+        $channel = $rss->appendChild($channel);
+
+        // Создание элемента title для канала
+        $title = $dom->createElement('title', self::RSS_TITLE);
+        $channel->appendChild($title);
+
+        // Создание элемента link для канала
+        $link = $dom->createElement('link', self::RSS_LINK);
+        $channel->appendChild($link);
+
+        // Получение данных из базы
+        $newsItems = $this->getNews();
+
+        if ($newsItems && is_array($newsItems)) {
+            // Обход всех новостей и создание элементов item
+            foreach ($newsItems as $news) {
+                // Создание элемента item
+                $item = $dom->createElement('item');
+
+                // title новости
+                $itemTitle = $dom->createElement('title', htmlspecialchars($news['title']));
+                $item->appendChild($itemTitle);
+
+                // link на новость (ссылка с ID)
+                $itemLink = $dom->createElement('link');
+                $itemLinkText = $dom->createTextNode(self::RSS_LINK . '?id=' . $news['id']);
+                $itemLink->appendChild($itemLinkText);
+                $item->appendChild($itemLink);
+
+                // description с CDATA секцией
+                $itemDesc = $dom->createElement('description');
+                $cdata = $dom->createCDATASection($news['description']);
+                $itemDesc->appendChild($cdata);
+                $item->appendChild($itemDesc);
+
+                // pubDate - дата публикации в формате RSS
+                $pubDate = $dom->createElement('pubDate');
+                $pubDateText = $dom->createTextNode(date(DATE_RSS, $news['datetime']));
+                $pubDate->appendChild($pubDateText);
+                $item->appendChild($pubDate);
+
+                // category
+                $itemCategory = $dom->createElement('category', htmlspecialchars($news['category']));
+                $item->appendChild($itemCategory);
+
+                // Привязка item к channel
+                $channel->appendChild($item);
             }
-            
-
-            // Сохранение RSS-файла
-            $dom->save(self::RSS_NAME);
-            
-        } catch (Exception $e) {
-            error_log("Ошибка создания RSS: " . $e->getMessage());
         }
+
+        // Сохранение файла
+        $dom->save(self::RSS_NAME);
     }
 }
