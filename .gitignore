@@ -1,15 +1,18 @@
-lab1.pdf
-
-3 SQLite.pdf
 lab3/*.db
 l3_news_diagram.puml
 
 lab4/*.db
-4 SPL.pdf
 
 lab5/*.db
-5 XML.pdf
 lab5/rss.xml
+
+
+lab6/*.db
+lab6/*.xml
+
+# tasks/lab docs
+lab-docs/*
+
 
 # composer and other packages
 composer.*
