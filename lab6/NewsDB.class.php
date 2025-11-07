@@ -202,8 +202,8 @@ class NewsDB implements INewsDB, IteratorAggregate {
 
     /**
      * Получение всех новостей из базы данных
-     * 
-     * @return PDOStatement|bool Результат выборки или false в случае ошибки
+     *
+     * @return array|bool Массив новостей или false в случае ошибки
      */
     public function getNews() {
         try {
@@ -211,9 +211,10 @@ class NewsDB implements INewsDB, IteratorAggregate {
                     FROM msgs, category
                     WHERE category.id = msgs.category
                     ORDER BY msgs.id DESC";
-            
-            return $this->_db->query($sql);
-            
+
+            $result = $this->_db->query($sql);
+            return $result->fetchAll(PDO::FETCH_ASSOC);
+
         } catch (PDOException $e) {
             error_log("Ошибка получения новостей: " . $e->getMessage());
             return false;
@@ -276,9 +277,9 @@ class NewsDB implements INewsDB, IteratorAggregate {
             
             // Получение данных из базы
             $result = $this->getNews();
-            
-            if ($result !== false) {
-                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+
+            if (is_array($result)) {
+                foreach ($result as $row) {
                     // Создание элемента item для каждой новости
                     $item = $dom->createElement('item');
                     
