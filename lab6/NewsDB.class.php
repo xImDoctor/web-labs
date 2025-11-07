@@ -164,14 +164,14 @@ class NewsDB implements INewsDB, IteratorAggregate {
     
     /**
      * Сохранение новости в базу данных
-     * 
+     *
      * @param string $title Заголовок новости
      * @param int $category ID категории
      * @param string $description Текст новости
      * @param string $source Источник новости
      * @return bool True в случае успеха, false в случае ошибки
      */
-    public function saveNews(string $title, int $category, string $description, string $source): bool {
+    public function saveNews($title, $category, $description, $source) {
         try {
             $dt = time();
             
@@ -223,12 +223,13 @@ class NewsDB implements INewsDB, IteratorAggregate {
 
     /**
      * Удаление новости из базы данных
-     * 
+     *
      * @param int $id ID удаляемой новости
      * @return bool True в случае успеха, false в случае ошибки
      */
-    public function deleteNews(int $id): bool {
+    public function deleteNews($id) {
         try {
+            $id = (int)$id;
             $sql = "DELETE FROM msgs WHERE id = $id";
             $result = $this->_db->exec($sql);
             
