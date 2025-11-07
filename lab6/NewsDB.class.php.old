@@ -182,7 +182,7 @@ class NewsDB implements INewsDB, IteratorAggregate {
         $result = $this->_db->query($sql);
         
         if (!$result) {
-            return false;
+            return []; // вместо false
         }
         
         $items = [];
