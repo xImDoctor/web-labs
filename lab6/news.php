@@ -37,8 +37,10 @@ $rssExists = file_exists(NewsDB::RSS_NAME);
 		<?php endif; ?>
 	</h1>
 
-	<p><a href="uml.html" class="uml-link">Диаграмма классов</a>
-	
+	<p>
+		<a href="../index.html" class="back-link">На главную</a>
+		<a href="uml.html" class="uml-link">Диаграмма классов</a>
+	</p>
 
 	<?php
 	// Проверка и вывод ошибок

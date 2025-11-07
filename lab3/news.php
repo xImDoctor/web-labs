@@ -32,7 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
 	<h1>Последние новости</h1>
 
-	<p><a href="uml.html" class="uml-link">Диаграмма классов</a></p>
+	<p>
+		<a href="../index.html" class="back-link">На главную</a>
+		<a href="uml.html" class="uml-link">Диаграмма классов</a>
+	</p>
 
 	<?php
 

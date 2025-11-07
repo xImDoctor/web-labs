@@ -102,3 +102,18 @@
 		.uml-link:hover {
 		    background-color: #0b7dda;
 		}
+
+		.back-link {
+		    display: inline-block;
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 10px 20px;
+		    text-decoration: none;
+		    border-radius: 4px;
+		    margin: 15px 10px 15px 0;
+		    font-weight: bold;
+		}
+
+		.back-link:hover {
+		    background-color: #45a049;
+		}
