@@ -1,0 +1,32 @@
+@startuml class-diagram
+  interface "INewsDB\n<b>interface INewsDB</b>" as INewsDB {
+    +saveNews(title, category, description, source)
+    +getNews()
+    +deleteNews(id)
+  }
+
+  interface "IteratorAggregate\n<b>interface IteratorAggregate (SPL)</b>" as IteratorAggregate {
+    +getIterator()
+  }
+
+  class "NewsDB\n<b>Класс NewsDB</b>" as NewsDB {
+    +DB_NAME : string
+    +RSS_NAME : string
+    +RSS_TITLE : string
+    +RSS_LINK : string
+    -_db : PDO
+    -items : array
+    #getDb()
+    +__construct()
+    +__destruct()
+    -getCategories()
+    +getIterator()
+    +saveNews(title, category, description, source)
+    +getNews()
+    +deleteNews(id)
+    +createRss()
+  }
+
+  INewsDB <|-- NewsDB
+  IteratorAggregate <|-- NewsDB
+@enduml
