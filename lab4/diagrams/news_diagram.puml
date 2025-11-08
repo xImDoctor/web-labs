@@ -1,11 +1,11 @@
 @startuml class-diagram
-  interface "INewsDB\n<b>inerface INewsDB</b>" as INewsDB {
+  interface "INewsDB\n<b>interface INewsDB</b>" as INewsDB {
     +saveNews(title, category, description, source)
     +getNews()
     +deleteNews(id)
   }
 
-  interface "Iterator\n<b>interface Iterator</b>" as Iterator {
+  interface "Iterator\n<b>interface Iterator (SPL)</b>" as Iterator {
     +rewind()
     +valid()
     +next()
@@ -13,11 +13,12 @@
     +current()
   }
 
-  interface "IteratorAggregate\n<b>interface IteratorAggregate</b>" as IteratorAggregate {
+  interface "IteratorAggregate\n<b>interface IteratorAggregate (SPL)</b>" as IteratorAggregate {
     +getIterator()
   }
 
   class "NewsDB\n<b>Класс NewsDB</b>" as NewsDB {
+    +DB_NAME : string
     -_db : SQLite3
     -items : array
     #getDb()
@@ -42,7 +43,14 @@
     +current()
   }
 
+  class "SQLite3\n<b>Встроенный класс PHP</b>" as SQLite3
+
+  class "ArrayIterator\n<b>Встроенный класс PHP</b>" as ArrayIterator
+
   INewsDB <|-- NewsDB
   IteratorAggregate <|-- NewsDB
   Iterator <|-- NumbersSquared
+  Iterator <|.. ArrayIterator
+  NewsDB *-- SQLite3
+  NewsDB ..> ArrayIterator : <<create>>
 @enduml
