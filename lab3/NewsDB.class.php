@@ -18,7 +18,7 @@ class NewsDB implements INewsDB {
      * Экземпляр класса SQLite3
      * @var SQLite3
      */
-    private $_db;
+    private SQLite3 $_db;
     
     /**
      * Геттер для свойства $_db (для доступа из классов-наследников)
