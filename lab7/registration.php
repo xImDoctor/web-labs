@@ -77,7 +77,7 @@ if (!empty($message)) {
       Введите символы, которые видите на изображении ниже (CAPTCHA).
     </div>
     
-    <form action="" method="post">
+    <form  method="post">
       <div class="captcha-box">
         <img src="noise-picture.php?<?php echo time(); ?>" alt="CAPTCHA">
         <div class="reload-link">
