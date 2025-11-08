@@ -9,6 +9,14 @@
     +getIterator()
   }
 
+  interface "Iterator\n<b>interface Iterator (SPL)</b>" as Iterator {
+    +rewind()
+    +valid()
+    +next()
+    +key()
+    +current()
+  }
+
   class "NewsDB\n<b>Класс NewsDB</b>" as NewsDB {
     +DB_NAME : string
     +RSS_NAME : string
@@ -27,6 +35,16 @@
     +createRss()
   }
 
+  class "SQLite3\n<b>Встроенный класс PHP</b>" as SQLite3
+
+  class "ArrayIterator\n<b>Встроенный класс PHP</b>" as ArrayIterator
+
+  class "DOMDocument\n<b>Встроенный класс PHP</b>" as DOMDocument
+
   INewsDB <|-- NewsDB
   IteratorAggregate <|-- NewsDB
+  Iterator <|.. ArrayIterator
+  NewsDB *-- SQLite3
+  NewsDB ..> ArrayIterator : <<create>>
+  NewsDB ..> DOMDocument : <<create>>
 @enduml
