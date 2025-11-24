@@ -10,6 +10,10 @@ lab5/rss.xml
 lab6/*.db
 lab6/*.xml
 
+lab8/.htaccess
+lab8/my-docs
+
+
 # tasks/lab docs
 lab-docs/*
 
