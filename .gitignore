@@ -12,6 +12,7 @@ lab6/*.xml
 
 lab8/.htaccess
 lab8/my-docs
+lab8/project/config/SECRETS.php
 
 
 # tasks/lab docs
