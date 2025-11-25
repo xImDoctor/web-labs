@@ -25,7 +25,7 @@
 <div class="navigation">
     <h4>Другие действия TestController:</h4>
     <ul>
-        <li><a href="/test/act2/">Действие act2</a></li>
-        <li><a href="/test/act3/">Действие act3</a></li>
+        <li><a href="<?= BASE_PATH ?>/test/act2/">Действие act2</a></li>
+        <li><a href="<?= BASE_PATH ?>/test/act3/">Действие act3</a></li>
     </ul>
 </div>

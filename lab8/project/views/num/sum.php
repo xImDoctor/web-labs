@@ -11,7 +11,7 @@
 <div class="info-block">
     <h3>Примеры:</h3>
     <ul>
-        <li><a href="/nums/1/2/3/">/nums/1/2/3/</a> → Сумма: 6</li>
-        <li><a href="/nums/10/20/30/">/nums/10/20/30/</a> → Сумма: 60</li>
+        <li><a href="<?= BASE_PATH ?>/nums/1/2/3/">/nums/1/2/3/</a> → Сумма: 6</li>
+        <li><a href="<?= BASE_PATH ?>/nums/10/20/30/">/nums/10/20/30/</a> → Сумма: 60</li>
     </ul>
 </div>

@@ -6,5 +6,5 @@
 <?php endif; ?>
 
 <div class="navigation">
-    <p><a href="/pages/">Вернуться к списку страниц</a></p>
+    <p><a href="<?= BASE_PATH ?>/pages/">Вернуться к списку страниц</a></p>
 </div>

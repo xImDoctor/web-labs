@@ -8,7 +8,7 @@
 		}
 		
 		private function renderLayout(Page $page, $content) {
-			$layoutPath = $_SERVER['DOCUMENT_ROOT'] . "/project/layouts/{$page->layout}.php";
+			$layoutPath = dirname(__DIR__) . "/project/layouts/{$page->layout}.php";
 			
 			if (file_exists($layoutPath)) {
 				ob_start();
@@ -22,7 +22,7 @@
 		
 		private function renderView(Page $page) {
 			if ($page->view) {
-				$viewPath = $_SERVER['DOCUMENT_ROOT'] . "/project/views/{$page->view}.php";
+				$viewPath = dirname(__DIR__) . "/project/views/{$page->view}.php";
 				
 				if (file_exists($viewPath)) {
 					ob_start();

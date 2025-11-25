@@ -9,7 +9,7 @@
     <title><?= htmlspecialchars($title ?? 'MVC Фреймворк') ?></title>
     
     <!-- Подключение CSS (задание V.1) -->
-    <link rel="stylesheet" href="/project/webroot/css/styles.css">
+    <link rel="stylesheet" href="<?= BASE_PATH ?>/project/webroot/css/styles.css">
     
     <!-- Дополнительные мета-теги -->
     <meta name="description" content="Лабораторная работа №8 - MVC Фреймворк">
@@ -21,14 +21,14 @@
         <div class="container">
             <div class="header-content">
                 <h1 class="site-logo">
-                    <a href="/">MVC Фреймворк</a>
+                    <a href="<?= BASE_PATH ?>/">MVC Фреймворк</a>
                 </h1>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="/">Главная</a></li>
-                        <li><a href="/pages/">Страницы</a></li>
-                        <li><a href="/products/all/">Продукты</a></li>
-                        <li><a href="/user/all/">Пользователи</a></li>
+                        <li><a href="<?= BASE_PATH ?>/">Главная</a></li>
+                        <li><a href="<?= BASE_PATH ?>/pages/">Страницы</a></li>
+                        <li><a href="<?= BASE_PATH ?>/products/all/">Продукты</a></li>
+                        <li><a href="<?= BASE_PATH ?>/user/all/">Пользователи</a></li>
                     </ul>
                 </nav>
             </div>
@@ -43,22 +43,22 @@
                     <h3>Навигация</h3>
                     <ul class="sidebar-menu">
                         <li><strong>Test Controller:</strong></li>
-                        <li><a href="/test/act1/">Действие 1</a></li>
-                        <li><a href="/test/act2/">Действие 2</a></li>
-                        <li><a href="/test/act3/">Действие 3</a></li>
+                        <li><a href="<?= BASE_PATH ?>/test/act1/">Действие 1</a></li>
+                        <li><a href="<?= BASE_PATH ?>/test/act2/">Действие 2</a></li>
+                        <li><a href="<?= BASE_PATH ?>/test/act3/">Действие 3</a></li>
                         
                         <li><strong>Num Controller:</strong></li>
-                        <li><a href="/nums/5/10/15/">Сумма чисел</a></li>
+                        <li><a href="<?= BASE_PATH ?>/nums/5/10/15/">Сумма чисел</a></li>
                         
                         <li><strong>User Controller:</strong></li>
-                        <li><a href="/user/all/">Все пользователи</a></li>
-                        <li><a href="/user/1/">User #1</a></li>
+                        <li><a href="<?= BASE_PATH ?>/user/all/">Все пользователи</a></li>
+                        <li><a href="<?= BASE_PATH ?>/user/1/">User #1</a></li>
                         
                         <li><strong>Product:</strong></li>
-                        <li><a href="/products/all/">Каталог</a></li>
+                        <li><a href="<?= BASE_PATH ?>/products/all/">Каталог</a></li>
                         
                         <li><strong>Pages (БД):</strong></li>
-                        <li><a href="/pages/">Список страниц</a></li>
+                        <li><a href="<?= BASE_PATH ?>/pages/">Список страниц</a></li>
                     </ul>
                 </div>
             </aside>

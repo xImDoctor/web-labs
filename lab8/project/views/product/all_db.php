@@ -19,7 +19,7 @@
                 <td>$<?= number_format($product['price'], 2) ?></td>
                 <td><?= $product['quantity'] ?></td>
                 <td><strong>$<?= number_format($product['cost'], 2) ?></strong></td>
-                <td><a href="/product/db/<?= $product['id'] ?>/" class="btn">Подробнее</a></td>
+                <td><a href="<?= BASE_PATH ?>/product/db/<?= $product['id'] ?>/" class="btn">Подробнее</a></td>
             </tr>
         <?php endforeach; ?>
     </tbody>

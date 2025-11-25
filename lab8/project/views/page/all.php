@@ -12,7 +12,7 @@
             <tr>
                 <td><?= $page['id'] ?></td>
                 <td><?= htmlspecialchars($page['title']) ?></td>
-                <td><a href="/page/<?= $page['id'] ?>/" class="btn">Открыть</a></td>
+                <td><a href="<?= BASE_PATH ?>/page/<?= $page['id'] ?>/" class="btn">Открыть</a></td>
             </tr>
         <?php endforeach; ?>
     </table>

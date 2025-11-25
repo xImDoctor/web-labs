@@ -12,8 +12,8 @@
 <div class="navigation">
     <h4>Навигация:</h4>
     <ul>
-        <li><a href="/user/all/">Все пользователи</a></li>
-        <li><a href="/user/<?= $id ?? 1 ?>/name/">Имя</a></li>
-        <li><a href="/user/<?= $id ?? 1 ?>/age/">Возраст</a></li>
+        <li><a href="<?= BASE_PATH ?>/user/all/">Все пользователи</a></li>
+        <li><a href="<?= BASE_PATH ?>/user/<?= $id ?? 1 ?>/name/">Имя</a></li>
+        <li><a href="<?= BASE_PATH ?>/user/<?= $id ?? 1 ?>/age/">Возраст</a></li>
     </ul>
 </div>
