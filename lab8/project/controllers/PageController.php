@@ -31,8 +31,6 @@ class PageController extends Controller
      */
     public function __construct()
     {
-        parent::__construct();
-        
         // Массив страниц из задания IV.3
         $this->pages = [
             1 => ['title'=>'страница 1', 'text'=>'текст страницы 1'],

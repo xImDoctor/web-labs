@@ -31,8 +31,6 @@ class ProductController extends Controller
      */
     public function __construct()
     {
-        parent::__construct();
-        
         // Массив продуктов
         $this->products = [
             1 => [

@@ -28,8 +28,6 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        parent::__construct();
-        
         // Массив пользователей из задания
         $this->users = [
             1 => ['name'=>'user1', 'age'=>'23', 'salary' => 1000],

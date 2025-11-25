@@ -29,8 +29,7 @@ return [
 	// UserController routes
 	new Route('/user/all/', 'user', 'all'),
 	new Route('/user/first/:n/', 'user', 'first'),
-	new Route('/user/:id/name/', 'user', 'info'),
-	new Route('/user/:id/age/', 'user', 'info'),
+	new Route('/user/:id/:key/', 'user', 'info'),
 	new Route('/user/:id/', 'user', 'show'),
 
 	// Legacy routes (can be removed)
