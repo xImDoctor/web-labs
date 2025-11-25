@@ -1,6 +1,8 @@
 <?php
 	namespace Core;
-	
+
+	require_once __DIR__ . '/../project/config/SECRETS.php';
+
 	class Model
 	{
 		private static $link;
@@ -8,7 +10,7 @@
 		public function __construct()
 		{
 			if (!self::$link) {
-				self::$link = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+				self::$link = mysqli_connect(\BD_HOST, \BD_USER, \BD_PASS, \BD_NAME);
 				mysqli_query(self::$link, "SET NAMES 'utf8'");
 			}
 		}

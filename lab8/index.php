@@ -31,7 +31,15 @@
 	
 	$routes = require __DIR__ . '/project/config/routes.php';
 
-	$uri = str_replace(BASE_PATH, '', $_SERVER['REQUEST_URI']);
+	// Очистка URI от BASE_PATH, index.php и параметров
+	$uri = $_SERVER['REQUEST_URI'];
+	$uri = parse_url($uri, PHP_URL_PATH);  // убираем query string (?param=value)
+	$uri = str_replace(BASE_PATH, '', $uri);  // убираем /lab8
+	$uri = str_replace('/index.php', '', $uri);  // убираем /index.php
+	if (empty($uri) || $uri === '') {
+		$uri = '/';
+	}
+
 	$track = ( new Router )      -> getTrack($routes, $uri);
 	$page  = ( new Dispatcher )  -> getPage($track);
 	
