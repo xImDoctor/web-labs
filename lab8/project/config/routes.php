@@ -3,8 +3,8 @@ use \Core\Route;
 
 return [
 	// HelloController routes
-	new Route('/', 'hello', 'index'),
-	new Route('/hello/', 'hello', 'index'),
+	new Route('/', 'page', 'all'),
+	new Route('/welcome/', 'hello', 'index'),
 
 	// TestController routes
 	new Route('/test/act1/', 'test', 'act1'),

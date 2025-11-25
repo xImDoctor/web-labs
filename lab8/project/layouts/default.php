@@ -26,7 +26,7 @@
                 <nav class="main-nav">
                     <ul>
                         <li><a href="<?= BASE_PATH ?>/">Главная</a></li>
-                        <li><a href="<?= BASE_PATH ?>/pages/">Страницы</a></li>
+                        <li><a href="<?= BASE_PATH ?>/welcome/">Приветствие</a></li>
                         <li><a href="<?= BASE_PATH ?>/products/all/">Продукты</a></li>
                         <li><a href="<?= BASE_PATH ?>/user/all/">Пользователи</a></li>
                     </ul>
@@ -81,7 +81,7 @@
             <!-- Правый сайдбар -->
             <aside class="sidebar right">
                 <div class="sidebar-content">
-                    <h3>ℹИнформация</h3>
+                    <h3>Информация</h3>
                     <div class="info-block">
                         <p><strong>Лабораторная работа №8</strong></p>
                         <p>MVC Фреймворк на PHP</p>
